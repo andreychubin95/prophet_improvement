@@ -36,7 +36,7 @@ class ProphetsEnsemble:
         elif freq in ['D', 'M']:
             return f'{x.year}-{x.month}-{x.day}' if freq == 'D' else f'{x.year}-{x.month}'
         elif freq == 'W':
-            return f'{x.year}-{x.week}'
+            return f'{x.isocalendar().year}-{x.isocalendar().week}'
         raise NotImplementedError(f'Only [H, D, W, M] are supported. {freq} was recieved as input!')
 
     def _get_holidays(self, data: pd.DataFrame) -> Optional[pd.DataFrame]:
